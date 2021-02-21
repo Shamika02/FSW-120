@@ -1,62 +1,24 @@
-import React from 'react';
-import './App.css';
+import React from "react"
+import {Link, Switch, Route} from "react-router-dom"
+import "./index.css"
+import Home from "./Home"
+import About from "./About"
+import ContactUs from "./ContactUs"
 
-
-function App() {
-  const handleSubmit = event => {
-   event.preventDefault();
-   alert('Thank you your responses have been recorded.')
- }
-  
-  return (
-    
-    <div className="wrapper">
-          <h3>My App</h3>
-         
-        <form  onSubmit={handleSubmit}>
-            <input type="text" Placeholder="First Name:" minlength = "3"required/>
-            <input type="text" Placeholder= "Last Name:" minlength = "3"required/>
-            <br/>
-            <br/>
-            <input type="text" Placeholder="Email;" minlength = "3"required/>
-            <input type="text" Placeholder="Place of Birth:" minlength = "3"required/>
-            <br/>
-            <br/>
-            <input type="number" Placeholder="Phone Number:"minlength = "3"required/>
-            <input type="text" Placeholder="Favorite Food:" minlength = "3"required/>
-            <br/>
-            <br/>  
-            <input type="text" Placeholder= "Tell us about yourself" style={{width:"350px", height:"100px"}}minlength = "3"required/>
-            <br/>
-            <br/> 
+function App() {    
+    return (
+        <div>
+            <Link to="/">Home</Link><br></br>
+            <Link to="/about">About</Link><br></br>
+            <Link to="/contact us">Contact Us</Link><br></br>
             
-            <button type="submit">Submit</button>
-      </form>
-    </div>
-  )
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/about" component={About} />
+                <Route path="/Contact Us" component={ContactUs} />
+            </Switch>
+        </div>
+    )
 }
-export default App;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default App
