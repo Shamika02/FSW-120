@@ -1,0 +1,21 @@
+.my-blog{
+background-color: darkorange;
+}
+footer{
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(158, 132, 79);
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+nav,navbar{
+  background-color: rgb(158, 132, 79);
+  font-size: 30px;
+  text-align: center;
+  text-decoration-color: black;
+}
+navDropdown item{
+  font-color: black;
+}

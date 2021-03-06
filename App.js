@@ -1,144 +1,72 @@
-import React, {Component} from 'react';
-import './App.css';
-import Button from './components/Button';
-import Input from './components/Input';
-import ClearButton from './components/ClearButton';
+import React from "react"
+import Blog from "./myblog"
+import "./App.css"
+import { Navbar,Nav,FormControl,Form,Button,NavDropdown } from 'react-bootstrap';
 
-class App extends Component {
- constructor(props) {
-   super(props);
-this.state ={
-  input:"",
-  previousNumber:"",
-  currentNumber:"",
-  operator:"",
+
+
+function App() {
+    return (
+   
+      <div className="my-blog">
+
+<Navbar bg="light" expand="lg">
+<Navbar.Brand href="#home">Home</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      
+     
+      <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">About</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Contact Us</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Inventory</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </Navbar.Collapse>
+</Navbar>
+
+
+        <Blog
+        title="Man must explore, and this is exploration at its greatest"
+        subTitle="Problems look mighty small from 150 miles up"
+        author="Start Bootstrap"
+        date="September 24, 2019"
+        />
+        <Blog
+        title="I believe every human has a finite number of heartbeats. I don't intend to waste any of mine."
+        subTitle=""
+        author="Start Bootstrap"
+        date="September 18, 2019"
+        />
+        <Blog
+         title="Science has not yet mastered prophecy"
+         subTitle="We predict too much for the next year and yet far too little for the next ten."
+         author="Start Bootstrap"
+         date="August 24, 2019"
+        />
+
+        <Blog
+        title="Failure is not an option"
+        subTitle="Many say exploration is part of our destiny, but it’s actually our duty to future generations."
+        author="Start Bootstrap"
+        date="July 8, 2019"
+        />
+        <hr/>
+        <br>
+        </br>
+    <footer>
+      To subscribe please send an email
+    </footer>
+    </div>
+    )
 }
 
- }
- 
-  addToInput = val =>{
-    this.setState({input: this.state.input + val});
-  };
-  addDecimal = val => {
-    //only add decimal if there is no current decimal point present in the input area
-    if(this.state.input.indexOf(".")=== -1){
-      this.setState({input: this.state.input + val});
-    }
-  };
-  
-  addZeroToInput = val =>{
-    // if this.state.input is not empty then addzero
-    if(this.state.input !== ""){
-      this.setState({input: this.state.input + val});
-    }
-  };
-clearInput = () => {
-  this.setState({input: ""});
-};
 
-add = () => {
-  this.setState.previousNumber = this.state.input;
-  this.setState({input: ""});
-  this.setState.operator = "plus";
-};
-
-subtract = () => {
-  this.setState.previousNumber = this.state.input;
-  this.setState({input: ""});
-  this.setState.operator = "subtract";
-};
-
-multiply = () => {
-  this.setState.previousNumber = this.state.input;
-  this.setState({input: ""});
-  this.setState.operator = "multiply";
-};
-divide = () => {
-  this.setState.previousNumber = this.state.input;
-  this.setState({input: ""});
-  this.setState.operator = "divide";
-};
-evaluate = () =>{
-  this.setState.currentNumber = this.state.input;
-if (this.state.operator === "plus"){
-  this.setState({
-    input: parseInt(this.state.previousNumber) + 
-    parseInt(this.state.currentNumber) 
-  });
-} else if (this.state.operator === "subtract"){
-  this.setState({
-    input: parseInt(this.state.previoustNumber) -
-    parseInt(this.state.currentNumber) 
-  });
-} else if (this.state.operator === "multiply"){
-  this.setState({
-    input: parseInt(this.state.previoustNumber) *
-    parseInt(this.state.currentNumber) 
-  });
-} else if (this.state.operator === "divide"){
-  this.setState({
-    input: parseInt(this.state.previoustNumber) /
-    parseInt(this.state.currentNumber) 
-  });
-}
-}
-
-  render(){
-  return (
-    <div className="App">
-     <div className="calc-wrapper">
-       <div className="row">
-        <Input>{this.state.input}</Input>
-       </div>
-         <div className="row">
-         <Button handleClick={this.addToInput}
-         >7</Button>
-         <Button handleClick={this.addToInput}
-         >8</Button>
-         <Button handleClick={this.addToInput}
-         >9</Button>
-         <Button handleClick={this.divide}
-         >/</Button>
-       </div>
-       <div className="row">
-         <Button handleClick={this.addToInput}
-         >4</Button>
-         <Button handleClick={this.addToInput}
-         >5</Button>
-         <Button handleClick={this.addToInput}
-         >6</Button>
-         <Button handleClick= {this.multiply}
-         >*</Button>
-         
-       </div>
-       <div className="row">
-         <Button handleClick={this.addToInput}
-         >1</Button>
-         <Button handleClick={this.addToInput}
-         >2</Button>
-         <Button handleClick={this.addToInput}
-         >3</Button>
-         <Button handleClick={this.add} >+</Button>
-        
-       </div>
-       <div className="row">
-         <Button handleClick= {this.addDecimal}
-         >.</Button>
-         <Button handleClick= {this.addZeroToInput}
-         >0</Button>
-         <Button handleClick={this.evaluate}
-         >=</Button>
-         <Button handleClick = {this.subtract}
-         >-</Button>
-       </div>
-       <div className="row">
-         <ClearButton handleClear={this.clearInput}
-         >Clear</ClearButton>
-       </div>
-     </div>
-</div>
-  )  
-  }
-}
-
-export default App;
+export default App
