@@ -70,7 +70,7 @@ const handleSubmit = sha =>{
 }
 
 export default TodoForm
-//Todo form.js
+
 import React,{useState} from 'react';
 import Todo from './Todo';
 import TodoForm from'./TodoForm';
@@ -82,7 +82,7 @@ const addTodo = todo =>{
     if(!todo.text ||/^\s*$/.test(todo.text)){
         return;
     }
-
+}
     const newTodos =[todo, ...todos];
     setTodos(newTodos);  
 };
@@ -117,5 +117,4 @@ const completeTodo =id=>{
   );
 }
 
-export default TodoList;
-
+export default TodoList
